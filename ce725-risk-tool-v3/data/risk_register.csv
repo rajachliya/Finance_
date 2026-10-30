@@ -1,0 +1,13 @@
+id,name,probability,delay_o,delay_m,delay_p,cost_o_lakh,cost_m_lakh,cost_p_lakh,affected_activities,source_status,verify_against
+R01,Heavier than normal monsoon disrupts external works,0.35,10,20,40,5,10,25,A15,"STARTER VALUE suggested by AI (Claude), not yet sourced",IMD rainfall data for the city; Doloi et al. 2012
+R02,Delay in fire NOC / occupancy approvals,0.4,15,30,75,2,5,15,A28,"STARTER VALUE suggested by AI (Claude), not yet sourced",MoSPI reasons for delay; Doloi et al. 2012; practitioner interview
+R03,Steel price escalation,0.3,0,0,0,40,80,150,,"STARTER VALUE suggested by AI (Claude), not yet sourced",Office of the Economic Adviser WPI for steel; contract escalation clause
+R04,Labour shortage after festival season,0.5,7,15,30,0,5,15,A08,"STARTER VALUE suggested by AI (Claude), not yet sourced",Doloi et al. 2012; Iyer and Jha 2005; practitioner interview
+R05,Unforeseen ground conditions during piling,0.2,10,20,45,20,40,90,A03,"STARTER VALUE suggested by AI (Claude), not yet sourced",Soil investigation report; practitioner interview
+R06,Lift supply delayed by vendor,0.3,15,30,60,0,5,10,A19,"STARTER VALUE suggested by AI (Claude), not yet sourced",Lift vendor lead times; practitioner interview
+R07,Client design or specification changes,0.25,10,20,45,15,40,100,A17,"STARTER VALUE suggested by AI (Claude), not yet sourced",Doloi et al. 2012; Iyer and Jha 2005
+R08,Contractor cash-flow problems slow work,0.2,15,30,60,0,10,30,A10,"STARTER VALUE suggested by AI (Claude), not yet sourced",Iyer and Jha 2005; MoSPI reasons for delay
+R09,Delay in power and water utility connections,0.35,10,25,60,2,5,15,A26,"STARTER VALUE suggested by AI (Claude), not yet sourced",MoSPI reasons for delay; utility agency timelines
+R10,Ready-mix concrete supply disruption,0.15,5,10,20,0,5,15,A07,"STARTER VALUE suggested by AI (Claude), not yet sourced",Practitioner interview
+R11,Sand and aggregate shortage (mining restrictions),0.2,7,15,30,5,15,30,A09,"STARTER VALUE suggested by AI (Claude), not yet sourced",News and state mining policy; practitioner interview
+R12,Site accident or stop-work order,0.05,10,20,40,5,15,40,A08,"STARTER VALUE suggested by AI (Claude), not yet sourced",Practitioner interview; labour safety statistics

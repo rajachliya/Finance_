@@ -1,0 +1,7 @@
+id,name,predecessors,dur_o,dur_m,dur_p,cost_o_lakh,cost_m_lakh,cost_p_lakh,daily_cost_lakh,group
+A,Activity A,,2,4,6,0,0,0,0,ungrouped
+B,Activity B,A,3,5,9,0,0,0,0,pairBD
+C,Activity C,A,2,6,8,0,0,0,0,ungrouped
+D,Activity D,B,4,5,8,0,0,0,0,pairBD
+E,Activity E,C,3,4,7,0,0,0,0,ungrouped
+F,Activity F,D;E,1,2,3,0,0,0,0,ungrouped

@@ -1,0 +1,4 @@
+project,report_name,activity_type,report_activity_name,planned_days,actual_days,planned_cost_lakh,actual_cost_lakh,delay_reason,risk_id,delay_days,source_page,extracted_by,checked_by
+EXAMPLE-Project-1,EXAMPLE completion report 2023,piling,Bored piles 600 mm,40,52,180,205,Hard strata met during boring,R05,9,p.14,M2,M4
+EXAMPLE-Project-1,EXAMPLE completion report 2023,rcc_frame,Superstructure floors 1-6,95,118,410,455,Labour shortage after Diwali,R04,14,p.15,M2,M4
+EXAMPLE-Project-1,EXAMPLE completion report 2023,oc_handover,Occupancy certificate,40,85,15,18,Fire NOC delayed,R02,45,p.22,M2,M4

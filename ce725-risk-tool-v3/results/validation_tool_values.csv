@@ -1,0 +1,50 @@
+test,item,tool_value
+T02,"Deterministic duration, most-likely (days)",16.0
+T03,PERT single critical path duration (days),16.666666666666664
+T01A,Simulated mean duration of A (days),3.998504894560746
+T01B,Simulated mean duration of B (days),5.337119455814178
+T01C,Simulated mean duration of C (days),5.66528179773534
+T01D,Simulated mean duration of D (days),5.334063022753508
+T01E,Simulated mean duration of E (days),4.333610781154567
+T01F,Simulated mean duration of F (days),2.0001042656095627
+T04,Project mean duration (days),17.122408715079533
+T05,Project P80 duration (days),18.30813794225851
+T05b,Project P50 duration (days),17.098148903940285
+T05c,Project P90 duration (days),18.944659307026242
+T06,Criticality index of B,0.63011
+T09b,Correlated case: project mean duration (days),17.212536935778502
+T09c,Correlated case: project P80 duration (days),18.530537760369885
+T09d,Correlated case: rank correlation B-D,0.582602713819617
+FIN-Plan,project_days,700.0
+FIN-Plan,construction_cost_lakh,3777.8499999999995
+FIN-Plan,project_npv_lakh,613.9656660516598
+FIN-Plan,equity_npv_lakh,313.4826092024293
+FIN-Plan,project_irr,0.19707914012833183
+FIN-Plan,equity_irr,0.20619711877909075
+FIN-Plan,idc_lakh,84.12081318335706
+FIN-Plan,total_interest_lakh,94.17613251735159
+FIN-Plan,peak_debt_lakh,842.6108131833569
+FIN-Plan,delay_comp_lakh,0.0
+FIN-Plan,profit_lakh,1951.15
+FIN-Flat10,project_days,700.0
+FIN-Flat10,construction_cost_lakh,4155.635
+FIN-Flat10,project_npv_lakh,274.1775796242293
+FIN-Flat10,equity_npv_lakh,-3.541697689145847
+FIN-Flat10,project_irr,0.15320115087458452
+FIN-Flat10,equity_irr,0.15948218658046587
+FIN-Flat10,idc_lakh,109.50646384663868
+FIN-Flat10,total_interest_lakh,124.8892108984023
+FIN-Flat10,peak_debt_lakh,1094.6674638466384
+FIN-Flat10,delay_comp_lakh,0.0
+FIN-Flat10,profit_lakh,1573.3650000000002
+FIN-Delay60,project_days,760.0
+FIN-Delay60,construction_cost_lakh,3804.85
+FIN-Delay60,project_npv_lakh,510.0942534683639
+FIN-Delay60,equity_npv_lakh,200.2647479326621
+FIN-Delay60,project_irr,0.17986900826690166
+FIN-Delay60,equity_irr,0.18786674373119983
+FIN-Delay60,idc_lakh,98.54699651620051
+FIN-Delay60,total_interest_lakh,109.11622688147129
+FIN-Delay60,peak_debt_lakh,873.2369965162004
+FIN-Delay60,delay_comp_lakh,0.0
+FIN-Delay60,profit_lakh,1924.1500000000008

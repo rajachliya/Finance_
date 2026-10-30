@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construction Schedule and Cost Risk Tool</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+<style>
+  :root {
+    --brand: #2f6f9e;
+    --brand-dark: #245a82;
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1d2329;
+    --muted: #3d4650;
+    --border: #e1e5ea;
+    --accent-bg: #eaf2f8;
+    --hero-text: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --brand: #3d82b5;
+      --brand-dark: #2c6a96;
+      --bg: #14181c;
+      --surface: #1d2329;
+      --text: #e8ecf0;
+      --muted: #c3cbd3;
+      --border: #313a43;
+      --accent-bg: #1f2d3a;
+      --hero-text: #ffffff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: var(--brand); }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero { background: var(--brand); color: var(--hero-text); text-align: center; padding: 88px 24px 80px; }
+  .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin: 0 0 16px; line-height: 1.15; }
+  .hero p { max-width: 720px; margin: 0 auto 32px; font-size: 1.15rem; }
+  .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 6px; font-size: 1.05rem; text-decoration: none; font-weight: 600; }
+  .btn-primary { background: #ffffff; color: var(--brand-dark); }
+  .btn-secondary { border: 2px solid rgba(255,255,255,0.8); color: #ffffff; }
+  .btn:hover { opacity: 0.9; }
+
+  section { padding: 56px 0 8px; }
+  h2 { font-size: 1.8rem; margin: 0 0 18px; }
+  .lead { font-size: 1.1rem; max-width: 900px; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 24px; }
+  .stat .label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+  .stat .value { font-size: 2rem; font-weight: 700; color: var(--brand); margin: 6px 0 4px; }
+  .stat .note { color: var(--muted); font-size: 0.98rem; }
+  .callout { background: var(--accent-bg); border-left: 4px solid var(--brand); border-radius: 6px; padding: 16px 20px; margin-top: 20px; }
+  .small { font-size: 0.9rem; color: var(--muted); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 24px; }
+  .card h3 { margin: 0 0 8px; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); }
+
+  ol.steps { padding-left: 22px; font-size: 1.05rem; }
+  ol.steps li { margin-bottom: 8px; }
+  .links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .links a { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 16px; text-decoration: none; font-weight: 600; }
+
+  footer { margin-top: 56px; padding: 32px 24px; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.95rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Construction Schedule and Cost Risk Tool</h1>
+  <p>A schedule and cost simulator for Indian building projects. It shows the range of likely finish dates, costs and returns, not just one number, and how much contingency a project really needs.</p>
+  <div class="buttons">
+    <a class="btn btn-primary" id="appLink" href="#">Open the app</a>
+    <a class="btn btn-secondary" id="repoLink" href="#">View the code</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="results">
+    <h2>What our case study shows</h2>
+    <p class="lead" id="resultsIntro">A G+10 residential building with 28 activities, simulated thousands of times.</p>
+    <div class="stats" id="stats"></div>
+    <div class="callout" id="resultsCallout" hidden></div>
+    <p class="small" id="resultsSource"></p>
+  </section>
+
+  <section>
+    <h2>Why simulate?</h2>
+    <p class="lead">A single schedule gives one finish date, and it is usually too optimistic. Real projects have uncertain durations, risks such as monsoon or approval delays, and activities that slip together. The tool runs the project thousands of times and reports how often each outcome happens, so contingency is set from evidence instead of a flat percentage.</p>
+  </section>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="cards">
+      <div class="card"><h3>Realistic schedule</h3><p>Runs the project thousands of times, letting every activity take a realistic range of durations, and shows the chance of finishing by any date.</p></div>
+      <div class="card"><h3>Delays that move together</h3><p>Links activities that tend to slip at the same time, such as outdoor work in the monsoon or work done by the same crew.</p></div>
+      <div class="card"><h3>Risk events</h3><p>Adds events like approval delays or labour shortages, each with its own chance of happening. Switch any risk on or off to see what it costs.</p></div>
+      <div class="card"><h3>Contingency and returns</h3><p>Shows how much contingency you really need, and how delays change the project's NPV, IRR and loan interest.</p></div>
+      <div class="card"><h3>Is a fix worth it? What does delay cost?</h3><p>Compares the cost of reducing a risk with the value it protects, and shows what every day of delay costs the project.</p></div>
+      <div class="card"><h3>Checked by hand</h3><p>Every calculation was checked against hand calculations and an independent Excel model, and the results are documented.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>Enter each activity with its best-case, most likely and worst-case duration and cost, and what must finish before it starts.</li>
+      <li>Add risk events and group activities that tend to slip together.</li>
+      <li>Enter the project's finance details: land, sale price, loan terms.</li>
+      <li>Run 10,000 simulations.</li>
+      <li>Read the likely finish dates, the contingency needed compared with a flat 10%, which activities and risks drive delay, and the effect on returns.</li>
+    </ol>
+  </section>
+
+  <section id="docs" hidden>
+    <h2>Documents</h2>
+    <div class="links" id="docLinks"></div>
+  </section>
+
+  <section>
+    <h2>Limitations and data privacy</h2>
+    <p class="lead">Results are only as good as the inputs. The case study uses published rates and practitioner estimates and is an illustration, not advice for a real project. The schedule uses finish-to-start links only and 30-day months, and does not model taxes. The public app runs on Streamlit Community Cloud, so uploaded data passes through Streamlit's servers: for confidential project data, run the tool on your own computer from the code repository.</p>
+  </section>
+
+  <section>
+    <h2>Use of AI</h2>
+    <p class="lead">This tool was built with the help of AI assistants for research, coding and drafting. Every number was checked by the team against hand calculations and an independent spreadsheet, and all AI use is recorded in our AI usage log.</p>
+  </section>
+
+</main>
+
+<footer id="footer"></footer>
+
+<script>
+/* =====================================================================
+   EDIT THIS BLOCK ONLY
+   ===================================================================== */
+const CONFIG = {
+  appUrl: "",          // your Streamlit app link, e.g. "https://your-app.streamlit.app"
+  repoUrl: "",         // your GitHub repository link
+  manualUrl: "",       // link to the user manual (PDF), optional
+  validationUrl: "",   // link to the validation report (PDF), optional
+  // Raw link to results/summary.json in your tool repo. Set this ONLY after the final run with
+  // verified data. Example:
+  // "https://raw.githubusercontent.com/USERNAME/ce725/main/ce725-risk-tool-v2/results/summary.json"
+  summaryUrl: "",
+  team: [],            // e.g. ["Name One (Project Lead)", "Name Two (Data Lead)"]
+  course: "CE725 Construction Economics and Finance",
+  // Optional: if you do not use summaryUrl, type the numbers here instead (or leave as null)
+  manualResults: null
+  /* manualResults example:
+  {
+    planMonths: 23.3, p80Months: 27.2, probFinishByPlan: 0.03,
+    contingencyP80: 0.089, probFlat10Short: 0.12,
+    planNpv: 614, npv80: 195, iterations: 10000, runDate: "2026-10-28"
+  }
+  */
+};
+/* ===================================================================== */
+
+const inr = (x, d = 0) => Number(x).toLocaleString("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d });
+const pct = (x, d = 0) => (Number(x) * 100).toFixed(d) + "%";
+
+function setLink(id, url) {
+  const el = document.getElementById(id);
+  if (url) { el.href = url; el.target = "_blank"; el.rel = "noopener"; }
+  else { el.hidden = true; }
+}
+
+function fromSummary(s) {
+  return {
+    planMonths: s.plan.most_likely_duration / 30,
+    p80Months: s.duration_days.P80 / 30,
+    probFinishByPlan: s.prob_finish_by_plan,
+    contingencyP80: s.contingency_P80_pct,
+    probFlat10Short: s.prob_cost_exceeds_flat10,
+    planNpv: s.plan_npv_lakh,
+    npv80: s.npv_80pct_confidence_lakh,
+    iterations: s.iterations,
+    runDate: s.run_date
+  };
+}
+
+function render(r) {
+  const tiles = [];
+  tiles.push({ label: "Likely finish (P80)", value: inr(r.p80Months, 1) + " months",
+    note: "The plan says " + inr(r.planMonths, 1) + " months" +
+          (r.probFinishByPlan != null ? ", but there is only a " + pct(r.probFinishByPlan) + " chance of making it." : ".") });
+  tiles.push({ label: "Contingency needed", value: pct(r.contingencyP80, 1),
+    note: "for 80% confidence, versus the usual flat 10%. A flat 10% falls short in " + pct(r.probFlat10Short) + " of runs." });
+  tiles.push({ label: "Project value (NPV)", value: "₹" + inr(r.npv80) + " lakh",
+    note: "with 80% confidence, versus ₹" + inr(r.planNpv) + " lakh if everything goes to plan." });
+  document.getElementById("stats").innerHTML = tiles.map(t =>
+    '<div class="stat"><div class="label">' + t.label + '</div><div class="value">' + t.value +
+    '</div><div class="note">' + t.note + '</div></div>').join("");
+  const gap = r.planNpv - r.npv80;
+  const c = document.getElementById("resultsCallout");
+  c.textContent = "Planning on the single most-likely schedule overstates what the project is worth by about ₹" +
+    inr(gap) + " lakh at 80% confidence.";
+  c.hidden = false;
+  document.getElementById("resultsSource").textContent =
+    "From " + inr(r.iterations) + " simulation runs" + (r.runDate ? ", " + r.runDate : "") + ".";
+}
+
+function renderPending() {
+  document.getElementById("stats").innerHTML =
+    '<div class="stat"><div class="label">Coming soon</div><div class="value">—</div>' +
+    '<div class="note">Final results will appear here after the run with verified data.</div></div>';
+}
+
+async function loadResults() {
+  if (CONFIG.summaryUrl) {
+    try {
+      const res = await fetch(CONFIG.summaryUrl, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      render(fromSummary(await res.json()));
+      return;
+    } catch (e) {
+      console.warn("Could not load summary.json:", e);
+    }
+  }
+  if (CONFIG.manualResults) { render(CONFIG.manualResults); return; }
+  renderPending();
+}
+
+setLink("appLink", CONFIG.appUrl);
+setLink("repoLink", CONFIG.repoUrl);
+const docs = [["User manual", CONFIG.manualUrl], ["Validation report", CONFIG.validationUrl], ["Code repository", CONFIG.repoUrl]]
+  .filter(d => d[1]);
+if (docs.length) {
+  document.getElementById("docLinks").innerHTML = docs.map(d =>
+    '<a href="' + d[1] + '" target="_blank" rel="noopener">' + d[0] + '</a>').join("");
+  document.getElementById("docs").hidden = false;
+}
+document.getElementById("footer").innerHTML = CONFIG.course +
+  (CONFIG.team.length ? "<br>Team: " + CONFIG.team.join(" · ") : "");
+loadResults();
+</script>
+</body>
+</html>

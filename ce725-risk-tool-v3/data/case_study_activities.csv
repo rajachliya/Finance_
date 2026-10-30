@@ -1,0 +1,29 @@
+id,name,predecessors,dur_o,dur_m,dur_p,cost_o_lakh,cost_m_lakh,cost_p_lakh,daily_cost_lakh,group,source_status,verify_against
+A01,Mobilisation and site setup,,15,20,30,36.8,40,50.0,0.05,site,"STARTER VALUE suggested by AI (Claude), not yet sourced",Contractor mobilisation norms; site engineer interview
+A02,Site clearance and survey,A01,7,10,15,9.2,10,12.5,0.02,site,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR earthwork/clearance items; site engineer interview
+A03,Piling (bored cast-in-situ),A02,35,45,70,202.4,220,308.0,0.8,substructure,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR piling items x pile count from structural design; piling contractor output per rig-day
+A04,Excavation for pile caps and raft,A03,12,15,25,41.4,45,58.5,0.3,substructure,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR earthwork rates; IS 7272 output constants
+A05,"Pile caps, raft and foundation",A04,25,30,45,165.6,180,243.0,0.1,substructure,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR RCC + reinforcement rates x quantities
+A06,Plinth beams and ground floor slab,A05,15,20,30,64.4,70,91.0,0.1,substructure,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR RCC rates; textbook schedules (Chitkara)
+A07,RCC frame floors 1-5,A06,75,90,130,349.6,380,513.0,0.6,structure,"STARTER VALUE suggested by AI (Claude), not yet sourced",Floor cycle of 15-21 days per floor from practitioner; DSR RCC + steel
+A08,RCC frame floors 6-10 and terrace,A07,70,85,125,349.6,380,513.0,0.6,structure,"STARTER VALUE suggested by AI (Claude), not yet sourced",Floor cycle per practitioner; DSR RCC + steel
+A09,Masonry floors 1-5,A07,50,60,85,101.2,110,137.5,0.05,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR brick/block work; IS 7272 output constants
+A10,Masonry floors 6-10,A08;A09,45,55,80,101.2,110,137.5,0.05,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR brick/block work; IS 7272 output constants
+A11,Electrical conduit and plumbing rough-in floors 1-5,A09,35,45,65,55.2,60,75.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR E&M schedule; MEP subcontractor interview
+A12,Electrical conduit and plumbing rough-in floors 6-10,A10;A11,35,45,65,55.2,60,75.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR E&M schedule; MEP subcontractor interview
+A13,Internal plastering floors 1-5,A11,35,45,60,69.0,75,93.8,0.03,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR plaster rates; IS 7272 output constants
+A14,Internal plastering floors 6-10,A12;A13,35,45,60,69.0,75,93.8,0.03,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR plaster rates; IS 7272 output constants
+A15,External plaster and facade,A10,60,75,110,128.8,140,182.0,0.15,external,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR rates; facade contractor; IMD monsoon days for scheduling
+A16,Waterproofing (terrace and toilets),A08;A12,20,25,40,41.4,45,58.5,0.02,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR waterproofing items; specialist quote
+A17,Flooring and wall tiling,A14;A16,60,75,105,239.2,260,325.0,0.05,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR flooring rates x areas; tiling crew output
+A18,"Doors, windows and grills",A14,40,50,70,138.0,150,187.5,0.03,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR joinery/aluminium items; supplier lead times
+A19,Lift supply and installation,A08,60,75,120,110.4,120,156.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",Lift vendor quotes and lead times (NBC 2016 for lift requirements)
+A20,Electrical wiring and fixtures,A17,40,50,70,128.8,140,175.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR E&M schedule; electrical contractor
+A21,Plumbing and sanitary fixtures,A17,35,45,65,110.4,120,150.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR sanitary items; plumbing contractor
+A22,Fire fighting system,A12,45,55,80,82.8,90,117.0,0.03,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",Fire contractor quote; NBC 2016 Part 4 requirements
+A23,Internal painting,A18;A20;A21,40,50,70,64.4,70,87.5,0.03,finishes,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR painting rates; IS 7272 output constants
+A24,External painting,A15,30,35,55,36.8,40,52.0,0.05,external,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR painting rates; IMD monsoon days
+A25,"External development (roads, drains, landscaping)",A15,45,60,90,101.2,110,143.0,0.1,external,"STARTER VALUE suggested by AI (Claude), not yet sourced",DSR road/drain items; IMD monsoon days
+A26,"Utilities: substation, STP, water tanks",A08,60,75,110,147.2,160,208.0,0.05,mep,"STARTER VALUE suggested by AI (Claude), not yet sourced",Utility agency timelines; vendor quotes
+A27,Testing and commissioning,A19;A22;A23;A26,15,20,35,13.8,15,19.5,0.05,admin,"STARTER VALUE suggested by AI (Claude), not yet sourced",Practitioner interview; commissioning checklists
+A28,Occupancy certificate and handover,A24;A25;A27,30,45,90,18.4,20,26.0,0.05,admin,"STARTER VALUE suggested by AI (Claude), not yet sourced",Local authority OC timelines; practitioner interview; MahaRERA/state RERA project data

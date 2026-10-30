@@ -1,0 +1,33 @@
+{
+  "_status": "PLACEHOLDER VALUES so the code runs. Replace every value with your verified figure and log each in Data_Sources and Assumptions.",
+  "land_cost_lakh": 2500,
+  "approvals_cost_lakh": 150,
+  "saleable_area_sqft": 95000,
+  "sale_price_per_sqft_inr": 9000,
+  "presale_share": 0.3,
+  "months_to_sell_after_completion": 12,
+  "brokerage_pct": 0.02,
+  "debt_share": 0.6,
+  "interest_rate_annual": 0.105,
+  "discount_rate_annual": 0.12,
+  "overhead_per_month_lakh": 12,
+  "equity_discount_rate_annual": 0.16,
+  "_keys_help": {
+    "land_cost_lakh": "paid at month 0 by equity",
+    "approvals_cost_lakh": "paid at month 0",
+    "saleable_area_sqft": "RERA carpet/saleable area",
+    "sale_price_per_sqft_inr": "comparable projects",
+    "presale_share": "fraction of units sold before completion, paid in step with construction",
+    "months_to_sell_after_completion": "remaining units sold evenly over this many months",
+    "brokerage_pct": "fraction of collections",
+    "debt_share": "fraction of each month's funding gap paid by the construction loan",
+    "interest_rate_annual": "construction loan rate",
+    "discount_rate_annual": "for project NPV (WACC-type rate)",
+    "equity_discount_rate_annual": "cost of equity, for equity NPV",
+    "overhead_per_month_lakh": "site overheads",
+    "rera_delay_interest_annual": "interest owed to buyers per year of late possession; 0 = off. Check RERA Section 18 and state rules for the prescribed rate",
+    "rera_grace_months": "months after plan completion before compensation starts (the date promised to buyers)"
+  },
+  "rera_delay_interest_annual": 0.0,
+  "rera_grace_months": 0
+}

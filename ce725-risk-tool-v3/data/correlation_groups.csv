@@ -1,0 +1,9 @@
+group,rho,reason,source_status
+site,0.2,Shared site team and access,STARTER VALUE suggested by AI (Claude); justify or change
+substructure,0.4,Same ground conditions and piling/excavation crew,STARTER VALUE suggested by AI (Claude); justify or change
+structure,0.5,"Same formwork crew, RMC supplier and steel supply",STARTER VALUE suggested by AI (Claude); justify or change
+finishes,0.4,Shared finishing labour pool,STARTER VALUE suggested by AI (Claude); justify or change
+mep,0.3,Same MEP subcontractor,STARTER VALUE suggested by AI (Claude); justify or change
+external,0.6,Weather: all exposed to the same monsoon,STARTER VALUE suggested by AI (Claude); justify or change
+admin,0.3,Same approving authorities,STARTER VALUE suggested by AI (Claude); justify or change
+pairBD,0.6,Benchmark only: B and D correlated for validation test T09,Used only by benchmark_6_activity_correlated.csv

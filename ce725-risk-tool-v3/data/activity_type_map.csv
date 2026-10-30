@@ -1,0 +1,29 @@
+id,name,activity_type
+A01,Mobilisation and site setup,mobilisation
+A02,Site clearance and survey,site_clearance
+A03,Piling (bored cast-in-situ),piling
+A04,Excavation for pile caps and raft,excavation
+A05,"Pile caps, raft and foundation",foundation
+A06,Plinth beams and ground floor slab,plinth_slab
+A07,RCC frame floors 1-5,rcc_frame
+A08,RCC frame floors 6-10 and terrace,rcc_frame
+A09,Masonry floors 1-5,masonry
+A10,Masonry floors 6-10,masonry
+A11,Electrical conduit and plumbing rough-in floors 1-5,mep_rough_in
+A12,Electrical conduit and plumbing rough-in floors 6-10,mep_rough_in
+A13,Internal plastering floors 1-5,internal_plaster
+A14,Internal plastering floors 6-10,internal_plaster
+A15,External plaster and facade,external_plaster_facade
+A16,Waterproofing (terrace and toilets),waterproofing
+A17,Flooring and wall tiling,flooring_tiling
+A18,"Doors, windows and grills",doors_windows
+A19,Lift supply and installation,lifts
+A20,Electrical wiring and fixtures,electrical_fixtures
+A21,Plumbing and sanitary fixtures,plumbing_fixtures
+A22,Fire fighting system,fire_fighting
+A23,Internal painting,internal_painting
+A24,External painting,external_painting
+A25,"External development (roads, drains, landscaping)",external_development
+A26,"Utilities: substation, STP, water tanks",utilities
+A27,Testing and commissioning,testing_commissioning
+A28,Occupancy certificate and handover,oc_handover
